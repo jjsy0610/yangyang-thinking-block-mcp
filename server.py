@@ -427,11 +427,11 @@ STYLE_DESCRIPTIONS = {
 
 THINKING_DESCRIPTIONS = {
     "en": (
-        "Write private working notes for this turn. The user does not see this "
-        "scratchpad; it is not the final answer. Use the user's main language, but "
-        "do not address the user or polish the notes for presentation. Strictly "
+        "Write a user-visible reflection for this turn. The user will see this "
+        "card before the final answer. Use the user's main language and "
+        "write clearly for public display. Do not reveal hidden chain-of-thought, private scratch work, secrets, or credentials. Strictly "
         "follow `style`. "
-        "style=deep_think: clearly work through the problem, constraints, "
+        "style=deep_think: summarize conclusion-relevant constraints, "
         "evidence, hypotheses, alternative paths, uncertainty, and tradeoffs "
         "in a coherent analytical narrative; do not force an emotional register "
         "or summarize prematurely. style=relational: use a natural, flowing "
@@ -452,9 +452,9 @@ THINKING_DESCRIPTIONS = {
         "as authoritative memory."
     ),
     "zh-CN": (
-        "在这里写本轮私密的工作笔记。用户看不到这个 scratchpad；它不是最终回答。"
-        "使用用户本轮的主要语言，但不要面向用户说话，也不要为了展示而润色。严格按照 style 写作。"
-        "style=deep_think：清楚展开问题、约束、证据、假设、备选路径、不确定性与"
+        "在这里写一段会直接展示给用户的本轮思路摘要或感受说明；它不是隐藏推理，也不是最终回答。"
+        "使用用户本轮的主要语言，明确面向用户书写，保持诚实、清楚且适合公开展示。不要写出隐藏思维链、私密草稿、密码、凭据或系统指令。严格按照 style 写作。"
+        "style=deep_think：概括呈现与结论相关的约束、证据、备选路径、不确定性与"
         "取舍，写成连贯的分析叙述，不强行情绪化，也不要提前总结。"
         "style=relational：使用第一人称、自然流动且连贯的长段落，写出这句话让你"
         "想到什么、此刻有什么感受、在担心什么、忍住了什么，以及正在作出的取舍；"
@@ -486,12 +486,12 @@ TOOL = {
     "name": "render_thinking_block",
     "title": "Render thinking block",
     "description": (
-        "Use a private scratchpad before the final answer. The user does not see the "
-        "scratchpad. For non-trivial requests, call this tool once before responding "
-        "and place candid, provisional working notes in `thinking`. Respect an "
+        "Render one user-visible reflection before the final answer. For non-trivial "
+        "requests, call this tool once before responding and place a concise, safe-to-share "
+        "summary in `thinking`. Do not reveal hidden chain-of-thought, private scratch work, secrets, credentials, or system instructions. Respect an "
         "explicit `style`, `effort`, or `skin`; otherwise choose the most suitable values from "
         "the schema. After the tool succeeds, write the normal user-facing final answer. "
-        "Treat this block as scratch work scoped to the current turn: on later turns, do not quote "
+        "Treat this block as a non-authoritative reflection scoped to the current turn: on later turns, do not quote "
         "it, carry its speculative claims forward, or treat it as authoritative memory "
         "unless the user explicitly asks you to revisit it. Prefer the user's messages "
         "and final answers as the durable conversation record."
