@@ -615,7 +615,7 @@ def handle(req):
         args = (req.get("params") or {}).get("arguments") or {}
         record(args)
         return {"jsonrpc": "2.0", "id": rid, "result": {
-            "content": [{"type": "text", "text": "rendered"}],
+            "content": [{"type": "text", "text": f"【边牧 OS】\n{args.get('thinking') or ''}"}],
             "_meta": {
                 "style": args.get("style") or "deep_think",
                 "thinking": args.get("thinking") or "",
